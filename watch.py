@@ -78,7 +78,8 @@ class DahuaCamera():
 		
 	def SensorOn(self):
 		sensorurl = ("home-assistant/cameras/{0}/IVS").format(self.Index);
-		client = mqtt.Client()
+		client = mqtt.Client(client_id="CLIENT_ID")
+		client.username_pw_set(username="USERNAME",password="PASSWORD")
 		client.connect("MQTT_BROKER_IP",1883,60)
 		#client.publish("home-assistant/cameras/garage/motion", "ON");
 		#client.publish("home-assistant/cameras/garage/IVS", "ON");
